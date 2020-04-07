@@ -5,8 +5,7 @@
   <style>
 
     .center {
-      margin-left: auto;
-      margin-right: auto;
+      margin: 0;
       position: absolute;
       top: 50%;
       left: 50%;
@@ -16,6 +15,7 @@
   </style>
   <script>
     function startTime() {
+      let help = true;
       let today = new Date();
       let h = today.getHours();
       let m = today.getMinutes();
@@ -24,10 +24,12 @@
       s = checkTime(s);
       if (s % 2 == 0)
         s = "fish";
+      if (s % 2 == 0)
+         help = true;
+         console.log(help);
       document.getElementById('txt').innerHTML =
         h + ":" + m + ":" + s;
       let t = setTimeout(startTime, 500);
-
     }
     function checkTime(i) {
       if (i < 10) { i = "0" + i };  // add zero in front of numbers < 10
@@ -39,7 +41,10 @@
 <body onload="startTime()">
 
   <div class="center">
-    <div id='txt'></div>
+     <div id='txt'></div>
+     <div id='words'>
+
+     </div>
   </div>
 </body>
 
