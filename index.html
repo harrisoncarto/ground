@@ -15,7 +15,7 @@
   </style>
   <script>
     function startTime() {
-      let help = true;
+      let help = false;
       let today = new Date();
       let h = today.getHours();
       let m = today.getMinutes();
@@ -24,8 +24,6 @@
       s = checkTime(s);
       if (s % 2 == 0)
         s = "fish";
-      if (s % 2 == 0)
-         help = true;
          console.log(help);
       document.getElementById('txt').innerHTML =
         h + ":" + m + ":" + s;
