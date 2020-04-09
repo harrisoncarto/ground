@@ -4,13 +4,12 @@
 <head>
   <style>
     .html-marquee {
+      margin: 0;
       position: absolute;
-      left: 50vh;
-      height: 25vh;
+      top: 50%;
+      left: 50%;
       font-family: monospace;
-      color: #000000;
     }
-
     .center {
       margin: 0;
       position: absolute;
@@ -21,11 +20,20 @@
   </style>
 </head>
 
-<body onload="startTime()">
+<body onload="startTime(), startFish()">
 
   <script>
+    function startFish(){
+      let today = new Date();
+      let h = today.getHours();
+      let m = today.getMinutes();
+      let s = today.getSeconds();
+      if (s % 2 == 0){
+        document.getElementById('fall').innerHTML =
+        '<marquee direction="down" height="50vh">fish</marquee>'
+      }
+    }
     function startTime() {
-      let help = false;
       let today = new Date();
       let h = today.getHours();
       let m = today.getMinutes();
@@ -36,21 +44,24 @@
         h + ":" + m + ":" + s;
       let t = setTimeout(startTime, 500);
     }
+    function checkTimeM(i) {
+      if (i % 2 != 0 && i < 10) { i = "0" + i } // add zero in front of numbers < 10
+      return i;
+    }
     function checkTimeS(i) {
       if (i % 2 != 0 && i < 10) { i = "0" + i } // add zero in front of numbers < 10
-      else if (i % 2 == 0) { i = "fish" }
+      else if (i % 2 == 0) { i = "fish" } // all even numbers change to "fish"
       return i;
     }
-      function checkTimeM(i) {
-      if (i % 2 != 0 && i < 10) { i = "0" + i } // add zero in front of numbers < 10
-      return i;
-    }
+
   </script>
 
   <div class="center">
     <div id='txt'></div>
   </div>
-
+  <div class="html-marquee">
+    <div id='fall'></div>
+  </div>
 </body>
 
 </html>
