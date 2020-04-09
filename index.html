@@ -3,13 +3,6 @@
 // hat
 <head>
   <style>
-    .html-marquee {
-      margin: 0;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      font-family: monospace;
-    }
     .center {
       margin: 0;
       position: absolute;
@@ -20,19 +13,9 @@
   </style>
 </head>
 
-<body onload="startTime(), startFish()">
+<body onload="startTime()">
 
   <script>
-    function startFish(){
-      let today = new Date();
-      let h = today.getHours();
-      let m = today.getMinutes();
-      let s = today.getSeconds();
-      if (s % 2 == 0){
-        document.getElementById('fall').innerHTML =
-        '<marquee direction="down" height="50vh">fish</marquee>'
-      }
-    }
     function startTime() {
       let today = new Date();
       let h = today.getHours();
@@ -58,9 +41,6 @@
 
   <div class="center">
     <div id='txt'></div>
-  </div>
-  <div class="html-marquee">
-    <div id='fall'></div>
   </div>
 </body>
 
