@@ -3,16 +3,26 @@
 
 <head>
   <style>
+    .html-marquee {
+      position: absolute;
+      left: 50vh;
+      height: 25vh;
+      font-family: monospace;
+      color: #000000;
+    }
 
     .center {
       margin: 0;
       position: absolute;
       top: 50%;
       left: 50%;
-      -ms-transform: translate(-50%, -50%);
-      transform: translate(-50%, -50%);
+      font-family: monospace;
     }
   </style>
+</head>
+
+<body onload="startTime()">
+
   <script>
     function startTime() {
       let help = false;
@@ -20,30 +30,27 @@
       let h = today.getHours();
       let m = today.getMinutes();
       let s = today.getSeconds();
-      m = checkTime(m);
-      s = checkTime(s);
-      if (s % 2 == 0)
-        s = "fish";
-         console.log(help);
+      m = checkTimeM(m);
+      s = checkTimeS(s);
       document.getElementById('txt').innerHTML =
         h + ":" + m + ":" + s;
       let t = setTimeout(startTime, 500);
     }
-    function checkTime(i) {
-      if (i < 10) { i = "0" + i };  // add zero in front of numbers < 10
+    function checkTimeS(i) {
+      if (i % 2 != 0 && i < 10) { i = "0" + i } // add zero in front of numbers < 10
+      else if (i % 2 == 0) { i = "fish" }
+      return i;
+    }
+      function checkTimeM(i) {
+      if (i % 2 != 0 && i < 10) { i = "0" + i } // add zero in front of numbers < 10
       return i;
     }
   </script>
-</head>
-
-<body onload="startTime()">
 
   <div class="center">
-     <div id='txt'></div>
-     <div id='words'>
-
-     </div>
+    <div id='txt'></div>
   </div>
+
 </body>
 
 </html>
