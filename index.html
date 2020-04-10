@@ -1,13 +1,52 @@
 <!DOCTYPE html>
 <html>
+
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     .center {
-      margin: 0;
       position: absolute;
-      top: 50%;
       left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
       font-family: monospace;
+    }
+
+    form.example input[type=text] {
+      padding: 10px;
+      font-size: 12px;
+      border: 1px solid grey;
+      float: left;
+      width: 80%;
+      font-family: monospace;
+    }
+
+    form.example button {
+      font-family: monospace;
+      float: left;
+      width: 20%;
+      padding: 10px;
+      background: rgb(117, 117, 117);
+      color: white;
+      font-size: 12px;
+      border: 1px solid grey;
+      border-left: none;
+      cursor: pointer;
+    }
+
+    form.example button:hover {
+      background: #c0c0c0;
+    }
+
+    form.example::after {
+      content: "";
+      clear: both;
+      display: table;
     }
   </style>
 </head>
@@ -40,6 +79,30 @@
 
   <div class="center">
     <div id='txt'></div>
+    <br>
+    <section>
+      <form class="example" action="/action_page.php" method="POST" style="margin:auto;max-width:300px">
+        <input type="text" name="search2">
+        <button type="submit"><i class="fa fa-search"></i></button>
+        <input type="checkBox" name="rando" checked="false" /> Random?
+        </select>
+      </form>
+      <!--
+      <form action="http://wilder.azurewebsites.net/echo" method="POST">
+        <input name="searchPhrase"/><br>
+        <input type="checkBox" name="rando" checked = "true"/> Random?
+        <select name="langChoice">
+          <option selected>ALL</option>
+          <option>JavaScript</option>
+          <option>C#</option>
+          <option>Java</option>
+          <option>Python</option>
+          <option>D3</option>
+        </select>
+        <br>
+      </form>
+      -->
+    </section>
   </div>
 </body>
 
